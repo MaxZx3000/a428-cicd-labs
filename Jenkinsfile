@@ -22,7 +22,7 @@
 //     }
 // }
 
-Node {
+node {
     stage('Agent Docker Intialization'){
         image 'node:lts-buster-slim'
         args '-p 3000:3000'
