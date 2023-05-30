@@ -24,8 +24,9 @@
 
 node {
     stage('Agent Docker Intialization'){
-        image 'node:lts-buster-slim'
-        args '-p 3000:3000'
+        docker.image('node:lts-buster-slim').withRun('-p 3000:3000'){
+            echo "Image successfully initialized!"
+        }
     }
     stage('Build'){
         sh 'npm install'
