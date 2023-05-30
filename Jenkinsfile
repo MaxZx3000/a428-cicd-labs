@@ -24,7 +24,7 @@
 
 node {
     stage('Agent Docker Intialization'){
-        docker.image('node:16-buster-slim').withRun('-p 3000:3000'){
+        docker.image('node:16-buster-slim').inside('-p 3000:3000'){
             echo "Image successfully initialized!"
             CI = 'true'
             stage('Build'){
