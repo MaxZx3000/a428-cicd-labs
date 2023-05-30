@@ -26,12 +26,12 @@ node {
     stage('Agent Docker Intialization'){
         docker.image('node:lts-buster-slim').withRun('-p 3000:3000'){
             echo "Image successfully initialized!"
+            stage('Build'){
+                sh 'npm install'
+            }
+            stage("Test"){
+                sh './jenkins/script/test.sh'
+            }
         }
-    }
-    stage('Build'){
-        sh 'npm install'
-    }
-    stage("Test"){
-        sh './jenkins/script/test.sh'
     }
 }
